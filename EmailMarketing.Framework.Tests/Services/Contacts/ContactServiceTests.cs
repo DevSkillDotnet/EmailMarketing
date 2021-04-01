@@ -541,39 +541,39 @@ namespace EmailMarketing.Framework.Tests.Services.Contacts
 
     
 
-        [Test]
-        public void GetIdByEmail_ValidEmail_ReturnContact()
-        {
-            //Arrange
-            string email = "n@gmail.com";
-            var contact = new Contact
-            {
-                Id = 1,
-                Email = "n@gmail.com",
-            };
+        //[Test]
+        //public void GetIdByEmail_ValidEmail_ReturnContact()
+        //{
+        //    //Arrange
+        //    string email = "n@gmail.com";
+        //    var contact = new Contact
+        //    {
+        //        Id = 1,
+        //        Email = "n@gmail.com",
+        //    };
 
-            var contactToMatch = new Contact
-            {
-                Id = 1,
-                Email = "n@gmail.com",
-            };
+        //    var contactToMatch = new Contact
+        //    {
+        //        Id = 1,
+        //        Email = "n@gmail.com",
+        //    };
 
-            _contactUnitOfWorkMock.Setup(x => x.ContactRepository).Returns(_contactRepositoryMock.Object);
-            _contactRepositoryMock.Setup(x => x.GetFirstOrDefaultAsync(
-                It.Is<Expression<Func<Contact, Contact>>>(y => y.Compile()(new Contact()) is Contact),
-                It.Is<Expression<Func<Contact, bool>>>(y => y.Compile()(contactToMatch)),
-                null, true
-                )).ReturnsAsync(contact).Verifiable();
+        //    _contactUnitOfWorkMock.Setup(x => x.ContactRepository).Returns(_contactRepositoryMock.Object);
+        //    _contactRepositoryMock.Setup(x => x.GetFirstOrDefaultAsync(
+        //        It.Is<Expression<Func<Contact, Contact>>>(y => y.Compile()(new Contact()) is Contact),
+        //        It.Is<Expression<Func<Contact, bool>>>(y => y.Compile()(contactToMatch)),
+        //        null, true
+        //        )).ReturnsAsync(contact).Verifiable();
 
-            //Act
+        //    //Act
 
-            // var result = _contactService.GetIdByEmail(email);
+        //    var result = _contactService.GetIdByEmail(email);
 
-            //result.Result.ShouldBe(contact);
+        //    result.Result.ShouldBe(contact);
 
-            //Assert
-            _contactRepositoryMock.VerifyAll();
-        }
+        //    //Assert
+        //    _contactRepositoryMock.VerifyAll();
+        //}
 
         [Test]
         public void GetAllContactAsync_ForUserId_ShowContactList()

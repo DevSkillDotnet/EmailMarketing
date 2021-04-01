@@ -147,7 +147,7 @@ namespace EmailMarketing.EmailSendingWorkerService
                     _logger.LogError(ex, $"Error Message: {ex.Message}");
                 }
 
-                await Task.Delay(20000, stoppingToken);
+                await Task.Delay(30000, stoppingToken);
             }
         }
 

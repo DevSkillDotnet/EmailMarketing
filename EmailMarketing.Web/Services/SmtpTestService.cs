@@ -28,14 +28,14 @@ namespace EmailMarketing.Web.Services
                 {
                     client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                    if (_env.IsDevelopment())
-                    {
+                    //if (_env.IsDevelopment())
+                    //{
                         await client.ConnectAsync(sMTPConfig.Server, sMTPConfig.Port, true);
-                    }
-                    else
-                    {
-                        await client.ConnectAsync(sMTPConfig.Server);
-                    }
+                    //}
+                    //else
+                    //{
+                    //    await client.ConnectAsync(sMTPConfig.Server);
+                    //}
 
                     await client.AuthenticateAsync(sMTPConfig.UserName, sMTPConfig.Password);
                     await client.DisconnectAsync(true);

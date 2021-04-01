@@ -40,14 +40,14 @@ namespace EmailMarketing.Web.Services
                 {
                     client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                    if(_env.IsDevelopment())
-                    {
+                    //if(_env.IsDevelopment())
+                    //{
                         await client.ConnectAsync(_smtpSettings.Server, _smtpSettings.Port, true);
-                    }
-                    else
-                    {
-                        await client.ConnectAsync(_smtpSettings.Server);
-                    }
+                    //}
+                    //else
+                    //{
+                    //    await client.ConnectAsync(_smtpSettings.Server);
+                    //}
 
                     await client.AuthenticateAsync(_smtpSettings.UserName, _smtpSettings.Password);
                     await client.SendAsync(messgae);

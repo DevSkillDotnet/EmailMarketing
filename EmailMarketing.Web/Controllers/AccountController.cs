@@ -205,8 +205,10 @@ namespace EmailMarketing.Web.Controllers
                                     emailVerificationlink, _appSettings.CompanyFullName, _appSettings.CompanyShortName,
                                     _appSettings.CompanyWebsiteUrl);
                                 var emailBody = accountConfirmationTemplate.TransformText();
+                                _logger.LogInformation("Email body generated");
 
                                 await _mailerService.SendEmailAsync(user.Email, subject, emailBody);
+                                _logger.LogInformation("Email sent");
 
                                 scope.Complete();
 
@@ -220,6 +222,7 @@ namespace EmailMarketing.Web.Controllers
                         catch (Exception ex)
                         {
                             scope.Dispose();
+                            _logger.LogError(ex, $"Failed to register for: {model.Email} and Error message: {ex.Message}");
                             throw ex;
                         }
                     }

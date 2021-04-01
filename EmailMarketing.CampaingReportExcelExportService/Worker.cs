@@ -98,7 +98,7 @@ namespace EmailMarketing.CampaingReportExcelExportService
                     _logger.LogError(ex, $"Error message : {ex.Message}");
                 }
 
-                await Task.Delay(120000, stoppingToken);
+                await Task.Delay(30000, stoppingToken);
             }
         }
 
